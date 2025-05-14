@@ -1,50 +1,142 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# 📱 MakeMyBudget
 
-## Get started
+**MakeMyBudget** is developed using **React Native** with **Expo** and follows the **app file routing architecture** powered by `expo-router`.
 
-1. Install dependencies
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* Node.js (v18 or above recommended)
+* Expo CLI
+
+  ```bash
+  npm install -g expo-cli
+  ```
+
+### Running the Project
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone <your-repo-url>
+   cd MakeMyBudget
+   ```
+
+2. **Install dependencies**:
 
    ```bash
    npm install
    ```
-
-2. Start the app
-
    ```bash
-   npx expo start
+   cp .env.sample .env
    ```
 
-In the output, you'll find options to open the app in a
+3. **Start the Expo development server**:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   ```bash
+   npm run start
+   ```
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+   or
 
-## Get a fresh project
+   ```bash
+   expo start
+   ```
 
-When you're ready, run:
+4. **Run on device or simulator**:
 
-```bash
-npm run reset-project
+   * Press `i` for iOS simulator (macOS only)
+   * Press `a` for Android emulator
+   * Or scan the QR code using the **Expo Go** app
+
+---
+
+## 📂 Project Structure
+
+```
+app/
+├── modules/
+│   ├── budget/
+│   ├── transactions/
+│   └── _layout.tsx
+├── navigation/
+│   ├── AppBottomNavigation.tsx
+│   └── MainNavigationStack.tsx
+├── shared/
+│   ├── apis/
+│   ├── components/
+│   ├── constants/
+│   ├── hooks/
+│   ├── redux/
+│   └── utils/
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 📦 Libraries Used
 
-To learn more about developing your project with Expo, look at the following resources:
+Redux (redux, @reduxjs/toolkit):
+For global state management.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Redux Persist:
+Persists Redux state to AsyncStorage, providing offline capabilities.
 
-## Join the community
+Redux Saga:
+Middleware for handling asynchronous side effects in Redux.
 
-Join our community of developers creating universal apps.
+NativeBase:
+A UI component library for React Native, used for building responsive and styled UI.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Formik + Yup:
+Used together for managing form state and validation.
+
+Expo Router:
+Enables file-based routing for screens and navigation within the app.
+
+Async Storage:
+Used for local data storage, particularly for persisting Redux state and user preferences.
+
+Axios:
+A promise-based HTTP client for making API requests.
+
+Moment.js:
+A library for parsing, validating, and formatting dates.
+
+React Navigation:
+Handles navigation including stack and bottom tab navigators.
+
+---
+
+## 📁 Folder Responsibilities
+
+* `modules/`: Feature-specific pages/components such as budget and transactions.
+* `navigation/`: Centralized navigation logic including bottom tabs and stacks.
+* `shared/`: Shared utilities, reusable components, Redux setup, API functions, and app-wide hooks/constants.
+
+---
+
+## 🧠 State Management
+
+* **Redux Toolkit** is used to organize slices and simplify reducer logic.
+* **Redux Persist** is integrated with **AsyncStorage** to maintain the state across app restarts, providing basic offline support.
+* **Redux Saga** handles side effects such as API calls, syncing local and remote data, and controlling complex logic flows.
+
+---
+
+## 🎨 UI and Form Handling
+
+* **NativeBase** is used as the primary UI component library to build consistent, styled UI elements.
+* **Formik** handles form states and submissions.
+* **Yup** provides schema-based form validation integrated with Formik.
+
+---
+
+## 📌 Notes
+
+* Built using **Expo SDK 53** and **React Native 0.79.2**
+* Based on **file-system routing** using `expo-router` for simplified navigation structure
+
+---

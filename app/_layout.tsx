@@ -1,15 +1,16 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { DefaultTheme, ThemeProvider } from "@react-navigation/native";
+import { useFonts } from "expo-font";
+import { StatusBar } from "expo-status-bar";
+import { NativeBaseProvider } from "native-base";
+import "react-native-reanimated";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { MainNavigationStack } from "./navigation/MainNavigationStack";
+import { persistor, store } from "./shared/redux/store";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
 
   if (!loaded) {
@@ -18,12 +19,15 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
+    <ThemeProvider value={DefaultTheme}>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <NativeBaseProvider>
+            <MainNavigationStack />
+            <StatusBar style="dark" />
+          </NativeBaseProvider>
+        </PersistGate>
+      </Provider>
     </ThemeProvider>
   );
 }
