@@ -1,7 +1,7 @@
 import React, { FC, ReactNode, memo } from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { spacing } from "../contants/Spacing";
+import { spacing } from "../constants/Spacing";
 import AppNetworkStatusBar from "./AppNetworkStatusBar";
 
 interface IAppBaseScreen {

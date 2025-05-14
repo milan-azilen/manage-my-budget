@@ -1,6 +1,6 @@
 import { AppBaseScreen } from "@/app/shared/components/AppBaseScreen";
 import { AppProgressBar } from "@/app/shared/components/AppProgressBar";
-import { spacing } from "@/app/shared/contants/Spacing";
+import { spacing } from "@/app/shared/constants/Spacing";
 import React from "react";
 import { FlatList } from "react-native";
 import { AppTransactionItemComponent } from "./components/AppTransactionItem";
