@@ -1,13 +1,14 @@
 import { Link, Stack } from "expo-router";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet } from "react-native";
+import { AppTypoGraphy } from "./shared/components/AppTypography";
 
 export default function NotFoundScreen() {
   return (
     <>
       <Stack.Screen options={{ title: "Oops!" }} />
-      <Text style={{color:'white'}}>This screen does not exist.</Text>
+      <AppTypoGraphy style={{color:'white'}}>This screen does not exist.</AppTypoGraphy>
       <Link href="/" style={styles.link}>
-        <Text>Go to home screen!</Text>
+        <AppTypoGraphy>Go to home screen!</AppTypoGraphy>
       </Link>
     </>
   );

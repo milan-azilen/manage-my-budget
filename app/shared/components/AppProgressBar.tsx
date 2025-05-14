@@ -1,7 +1,7 @@
 import { Box, Center, HStack, Progress, VStack } from "native-base";
 import React, { FC, useMemo } from "react";
-import { Text } from "react-native";
 import { formatAmount } from "../utils/currencyUtils";
+import { AppTypoGraphy } from "./AppTypography";
 
 interface IAppProgressBar {
   percentage: number;
@@ -33,21 +33,21 @@ export const AppProgressBar: FC<IAppProgressBar> = ({
       <Box w="100%">
         <VStack space="md" my={5}>
           <VStack space="md">
-            <Text>Budget Status</Text>
+            <AppTypoGraphy>Budget Status</AppTypoGraphy>
           </VStack>
           <VStack space="md">
             <Progress colorScheme={color} value={percentage} />
           </VStack>
           <HStack space="md" justifyContent={"space-between"}>
-            <Text
+            <AppTypoGraphy
               style={{
                 left: `${percentage - 5}%`,
                 opacity: percentage < 90 ? 1 : 0,
               }}
             >
               {formatAmount(current)}
-            </Text>
-            <Text>{formatAmount(total)}</Text>
+            </AppTypoGraphy>
+            <AppTypoGraphy>{formatAmount(total)}</AppTypoGraphy>
           </HStack>
         </VStack>
       </Box>

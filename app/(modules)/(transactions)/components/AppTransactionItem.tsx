@@ -1,6 +1,7 @@
+import { AppTypoGraphy } from "@/app/shared/components/AppTypography";
 import { ITransactionItem } from "@/app/shared/redux/modules/transactions/transaction-types";
 import { Ionicons } from "@expo/vector-icons";
-import { Box, HStack, Icon, Spacer, Text, VStack } from "native-base";
+import { Box, HStack, Icon, Spacer, VStack } from "native-base";
 import { memo } from "react";
 
 const AppTransactionItem = ({
@@ -23,7 +24,7 @@ const AppTransactionItem = ({
     >
       <HStack space={[2, 3]} justifyContent="space-between">
         <VStack>
-          <Text
+          <AppTypoGraphy
             _dark={{
               color: "warmGray.50",
             }}
@@ -31,18 +32,18 @@ const AppTransactionItem = ({
             bold
           >
             {formatedAmount}
-          </Text>
-          <Text
+          </AppTypoGraphy>
+          <AppTypoGraphy
             color="coolGray.600"
             _dark={{
               color: "warmGray.200",
             }}
           >
             {title}
-          </Text>
+          </AppTypoGraphy>
         </VStack>
         <Spacer />
-        <Text
+        <AppTypoGraphy
           fontSize="xs"
           _dark={{
             color: "warmGray.50",
@@ -51,7 +52,7 @@ const AppTransactionItem = ({
           alignSelf="flex-start"
         >
           {formatedDate}
-        </Text>
+        </AppTypoGraphy>
         <Icon
           as={Ionicons}
           name="cash-outline"
