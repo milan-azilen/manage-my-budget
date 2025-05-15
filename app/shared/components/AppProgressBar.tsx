@@ -35,18 +35,24 @@ export const AppProgressBar: FC<IAppProgressBar> = ({
           <VStack space="md">
             <AppTypoGraphy>Budget Status</AppTypoGraphy>
           </VStack>
+          <HStack space="md" justifyContent={"space-between"}>
+            <AppTypoGraphy
+              style={{
+                left: `${percentage - 5}%`,
+              }}
+            >
+              {formatAmount(current)}
+            </AppTypoGraphy>
+          </HStack>
           <VStack space="md">
             <Progress colorScheme={color} value={percentage} />
           </VStack>
           <HStack space="md" justifyContent={"space-between"}>
             <AppTypoGraphy
               style={{
-                left: `${percentage - 5}%`,
-                opacity: percentage < 90 ? 1 : 0,
+                display: "none",
               }}
-            >
-              {formatAmount(current)}
-            </AppTypoGraphy>
+            ></AppTypoGraphy>
             <AppTypoGraphy>{formatAmount(total)}</AppTypoGraphy>
           </HStack>
         </VStack>

@@ -15,7 +15,7 @@ export default function CreateBudgetLimitScreen() {
   }, [ref.current, amount]);
 
   return (
-    <AppBaseScreen>
+    <AppBaseScreen>      
       <Formik
         innerRef={ref}
         initialValues={initValues}
@@ -34,6 +34,7 @@ export default function CreateBudgetLimitScreen() {
                 }}
                 error={touched.amount && errors.amount}
                 placeholder="Amount"
+                keyboardType="numeric"
               />
               <AppButton
                 onPress={() => {

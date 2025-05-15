@@ -1,17 +1,19 @@
-import { Box, FormControl, IInputProps, Input } from "native-base";
+import { Box, FormControl, IInputProps } from "native-base";
 import React, { FC, memo } from "react";
+import { StyleSheet, TextInput } from "react-native";
 
 export const AppInput: FC<Partial<IInputProps & { error?: string | false }>> =
-  memo(({ error, placeholder, onChangeText, value }) => {
+  memo(({ error, placeholder, onChangeText, value, keyboardType }) => {
     return (
       <Box alignItems="center">
         <FormControl isInvalid={error as boolean}>
           <FormControl.Label>{placeholder}</FormControl.Label>
-          <Input
+          <TextInput
             value={value}
             placeholder={placeholder}
-            w="100%"
             onChangeText={onChangeText}
+            style={styles.input}
+            keyboardType={keyboardType}
           />
           {error && error !== "" ? (
             <FormControl.ErrorMessage>{error}</FormControl.ErrorMessage>
@@ -20,3 +22,9 @@ export const AppInput: FC<Partial<IInputProps & { error?: string | false }>> =
       </Box>
     );
   });
+
+  const styles = StyleSheet.create({input: {
+    borderColor: '#e7e7ed7',
+    borderWidth: 1,
+    padding: 12,
+  }})
